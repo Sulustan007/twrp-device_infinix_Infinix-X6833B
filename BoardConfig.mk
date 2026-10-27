@@ -6,33 +6,39 @@
 
 DEVICE_PATH := device/infinix/Infinix-X6833B
 
-# Inherit from mt6789-common
+# Inherit common configuration
 include device/transsion/mt6789-common/BoardConfigCommon.mk
 
-# Assert
+# Device assertion
 TARGET_OTA_ASSERT_DEVICE := Infinix-X6833B
-
-# Brightness
-TW_DEFAULT_BRIGHTNESS := 2047
-TW_MAX_BRIGHTNESS := 2077
-TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-TW_INPUT_BLACKLIST := "hbtp_vm"
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_Infinix-X6833B
-TARGET_RECOVERY_DEVICE_MODULES := libinit_Infinix-X6833B
+TARGET_RECOVERY_DEVICE_MODULES += libinit_Infinix-X6833B
 
-# TWRP Configs
+# TWRP configuration
 TW_DEVICE_VERSION := X6833B_by_rama982
 TW_DEFAULT_LANGUAGE := ru
-TW_STATUS_ICONS_ALIGN := right
 
-# Date & Time Fix
+# Brightness
+# Values below assume a verified 0-255 brightness range.
+# Change only after checking the actual device sysfs interface.
+TW_DEFAULT_BRIGHTNESS := 80
+TW_MAX_BRIGHTNESS := 255
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+
+# Input
+TW_INPUT_BLACKLIST := hbtp_vm
+
+# Date and time
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
-TW_CUSTOM_CLOCK_PATH := "/sys/class/rtc/rtc0/time"
+TW_CUSTOM_CLOCK_PATH := /sys/class/rtc/rtc0/time
 
-# Additional Utilities & Battery
+# Additional utilities
 TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_RESETPROP := true
 TW_BACKUP_EXCLUSIONS := /data/fonts
 TW_MAX_RECOVERY_LOG_SIZE := 2048
+
+# Status bar
+TW_STATUS_ICONS_ALIGN := right
