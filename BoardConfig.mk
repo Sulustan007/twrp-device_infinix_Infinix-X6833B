@@ -13,9 +13,9 @@ include device/transsion/mt6789-common/BoardConfigCommon.mk
 TARGET_OTA_ASSERT_DEVICE := Infinix-X6833B
 
 # Brightness
-override TW_DEFAULT_BRIGHTNESS := 2047
-override TW_MAX_BRIGHTNESS := 2077
-TW_BRIGTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_DEFAULT_BRIGHTNESS := 2047
+TW_MAX_BRIGHTNESS := 2077
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_INPUT_BLACKLIST := "hbtp_vm"
 
 # Init
@@ -24,7 +24,7 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_Infinix-X6833B
 
 # TWRP Configs
 TW_DEVICE_VERSION := X6833B_by_rama982
-TW_DEFUALT_LANGUAGE := ru
+TW_DEFAULT_LANGUAGE := ru
 TW_STATUS_ICONS_ALIGN := right
 
 # Date & Time Fix
